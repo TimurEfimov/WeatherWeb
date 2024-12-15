@@ -1,3 +1,16 @@
+<script setup>
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore()
+const country = ref("")
+const getData = () => {
+  store.commit("setCountry", country.value)
+  store.dispatch("fetchWeather")
+  country.value = "";
+}
+</script>
+
 <template>
   <form class="max-w-md mx-auto">
     <label for="location"></label>
@@ -24,6 +37,8 @@
         id="default-search"
         class="block w-full p-4 bg-transparent border-b outline-none"
         placeholder="Search Location..."
+        v-model="country"
+        @keyup.enter="getData"
         required
       />
     </div>
