@@ -12,15 +12,17 @@ export default createStore({
     },
     setCountry(state, country) {
       state.localCountry = country
+      console.log(country)
     },
   },
   actions: {
     async fetchWeather({ commit, state }) {
       try {
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${state.localCountry}&appid=76ddaab28d7ed9c86e748832761638c9`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${state.localCountry}&appid=76ddaab28d7ed9c86e748832761638c9&units=metric`,
         )
         commit('setWeather', data)
+        console.log('continue')
       } catch (err) {
         console.log(err)
         alert('Не получилось найти такой город')

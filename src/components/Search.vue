@@ -3,8 +3,9 @@ import { ref } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
-const country = ref("")
+const country = ref()
 const getData = () => {
+  console.log(52)
   store.commit("setCountry", country.value)
   store.dispatch("fetchWeather")
   country.value = "";
@@ -12,7 +13,7 @@ const getData = () => {
 </script>
 
 <template>
-  <form class="max-w-md mx-auto">
+  <form class="max-w-md mx-auto" @submit.prevent="getData">
     <label for="location"></label>
     <div class="relative">
       <div class="absolute inset-y-0 end-0 flex items-center pe-3 pointer-events-none">
@@ -38,8 +39,6 @@ const getData = () => {
         class="block w-full p-4 bg-transparent border-b outline-none"
         placeholder="Search Location..."
         v-model="country"
-        @keyup.enter="getData"
-        required
       />
     </div>
   </form>

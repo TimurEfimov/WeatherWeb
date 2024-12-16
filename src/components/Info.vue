@@ -8,6 +8,7 @@ defineProps({
   humidity: Number,
   cloudcover: Number,
   wind: Number,
+  desc: String,
 })
 </script>
 
@@ -19,12 +20,12 @@ defineProps({
     <Search />
     <h4 class="my-11">Weather Details...</h4>
     <div class="flex flex-col gap-[30px]">
-      <h2 class="uppercase font-medium">thunderstorm with light drizzle</h2>
+      <h2 class="uppercase font-medium">{{ desc }}</h2>
 
       <div class="flex justify-between">
         <p>Temp max</p>
         <div class="flex gap-6">
-          <span>{{ maxtemp }}°</span>
+          <span>{{ Math.round(maxtemp) }}°</span>
           <img src="/public/tempmax.svg" alt="" />
         </div>
       </div>
@@ -32,7 +33,7 @@ defineProps({
       <div class="flex justify-between">
         <p>Temp min</p>
         <div class="flex gap-6">
-          <span>{{ mintemp }}°</span>
+          <span>{{ Math.round(mintemp) }}°</span>
           <img src="/public/tempmin.svg" alt="" />
         </div>
       </div>

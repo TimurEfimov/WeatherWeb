@@ -11,23 +11,22 @@ onBeforeMount(() => {
   store.dispatch('fetchUserCountry')
 
   store.dispatch('fetchWeather')
+
 })
 
-return {
-  store,
-  weather: computed(() => store.getters.weather),
-}
+  const weather = computed(() => store.getters.weather)
 </script>
 
 <template>
   <div class="px-28 py-9">
-    <Header :city="weather.name" :day="weather.timezone" />
+    <Header :city="weather.name" :day="weather.timezone" :temp="weather.main.temp" />
     <Info
       :maxtemp="weather.main.temp_max"
       :mintemp="weather.main.temp_min"
       :humidity="weather.main.humidity"
       :cloudcover="weather.clouds.all"
       :wind="weather.wind.speed"
+      :desc="weather.weather[0].description"
     />
   </div>
 </template>
