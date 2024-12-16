@@ -19,7 +19,7 @@ export default createStore({
     async fetchWeather({ commit, state }) {
       try {
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${state.localCountry}&appid=76ddaab28d7ed9c86e748832761638c9&units=metric`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${state.localCountry}&appid=76ddaab28d7ed9c86e748832761638c9&units=metric&lang=ru`,
         )
         commit('setWeather', data)
         console.log('continue')
