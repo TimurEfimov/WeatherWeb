@@ -14,7 +14,7 @@ defineProps({
 
 <template>
   <div
-    class="w-[526px] h-full fixed right-0 top-0 z-20 text-lg py-10 pr-[137px] pl-9"
+    class="w-[526px] h-full fixed right-0 top-0 z-20 text-lg py-10 pr-[137px] pl-9 max-xl:w-[420px] max-xl:pr-11 max-lg:w-full max-lg:static max-lg:px-40 max-lg:min-h-screen max-sm:px-20"
     style="backdrop-filter: blur(10px)"
   >
     <Search />

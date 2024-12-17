@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="px-28 py-9">
+  <div class="max-lg:flex max-lg:flex-col">
     <Header :city="weather.name" :day="weather.timezone" :temp="weather.main.temp" />
     <Info
       :maxtemp="weather.main.temp_max"

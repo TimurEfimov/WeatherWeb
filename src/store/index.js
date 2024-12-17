@@ -29,7 +29,7 @@ export default createStore({
       }
     },
     fetchUserCountry(context) {
-      context.commit('setCountry', 'London')
+      context.commit('setCountry', 'Moscow')
     },
   },
   getters: {
